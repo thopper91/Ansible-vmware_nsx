@@ -2,7 +2,7 @@
 localhost ansible_connection=local #ansible_python_interpreter=python
 
 [vmware_nsx]
-10.0.5.103
+0.0.0.80
 
 [vmware_vcenter]
-ukrdvmgvc001.dbpoc.uk ansible_ssh_user=hoppert ansible_ssh_private_key_file=~/.ssh/id_rsa
+wahoo003.local.uk ansible_ssh_user=hoppert ansible_ssh_private_key_file=~/.ssh/id_rsa
