@@ -1,0 +1,46 @@
+# This playbook simply installs all required tools in order for ansible to work on the vmware nsx
+# client. These have been taken from the following repositories:
+#
+#
+---
+- name: Ensure 'pip' is installed
+  command: pip install
+
+- name: Install tools using 'apt-get'
+  command: apt-get install {{ item.name }}
+  with_items:
+    - { name: 'npm' }
+    - { name: 'sshpass' }
+    - { name: 'build-essential' }
+    - { name: 'libssl-dev' }
+    - { name: 'libffi-dev' }
+    - { name: 'python-dev' }
+    - { name: 'zlib1g-dev' }
+    - { name: 'python-openssl' }
+    - { name: 'libxml2-dev' }
+    - { name: 'libxslt-dev' }
+
+- name: Install tools using 'pip'
+  command: pip install {{ item.name }}
+  with_items:
+    - { name: 'ansible' }
+    - { name: 'nsxramlclient' }
+    - { name: 'pyvmomi' }
+
+- name: Ensure NPM tools are installed
+  command: npm install {{ item.name }}
+  with_items:
+    - { name: 'https://github.com/yfauser/raml2html'}
+    - { name: 'https://github.com/yfauser/raml2postman'}
+    - { name: 'raml-fleece'}
+
+- name: Clone specific repositories
+  command: git clone {{ item.name }}
+  with_items:
+    - { name: 'https://github.com/vmware/nsxraml' }
+    - { name: 'https://github.com/vmware/nsxansible' }
+
+- name: Update config file with line
+  lineinfile:
+    path: /home/{{ user }}/Ansible-VmwareNSX/ansible.cfg
+    line: 'library=/home/{{ user }}/Ansible-VmwareNSX/nsxansible/library'

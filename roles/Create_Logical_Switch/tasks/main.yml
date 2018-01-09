@@ -1,0 +1,16 @@
+---
+- name: Include all variable files
+  include_vars:
+    dir: 'vars'
+    extensions:
+      - yml
+
+- name: Create dummy Logical Switch for NSX
+  nsx_logical_switch:
+    nsxmanager_spec: "{{ nsxmanager_spec }}"
+    state: present
+    transportzone: "{{ transportZone }}"
+    name: "{{ name }}"
+    controlplanemode: "{{ replication }}"
+    description: "{{ description }}"
+  register: create_logical_switch

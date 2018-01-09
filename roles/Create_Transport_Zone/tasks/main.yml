@@ -1,0 +1,26 @@
+---
+- name: Include all variable files
+  include_vars:
+    dir: 'vars'
+    extensions:
+      - yml
+
+- name: Gather vCenter Mgmt Cluster moid
+  vcenter_gather_moids:
+    hostname: "{{ vmware_hostname }}"
+    username: "{{ vmware_username }}"
+    password: "{{ vmware_password }}"
+    datacenter_name: "{{ dc_name }}"
+    cluster_name: "{{ cluster }}"
+    validate_certs: false
+  register: vcenter_mgmt_cluster_moid
+
+- name: Create Transport Zone
+  nsx_transportzone:
+    nsxmanager_spec: "{{ nsxmanager_spec }}"
+    state: 'present'
+    name: "{{ name }}"
+    controlplanemode: "{{ replication }}"
+    description: "{{ description }}"
+    cluster_moid_list:
+      - '{{ vcenter_mgmt_cluster_moid.object_id }}'

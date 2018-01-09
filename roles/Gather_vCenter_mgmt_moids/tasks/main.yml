@@ -1,0 +1,12 @@
+---
+- name: Gather vCenter Mgmt Cluster moid
+  vcenter_gather_moids:
+    hostname: "{{ vmware_hostname }}"
+    username: "{{ vmware_username }}"
+    password: "{{ vmware_password }}"
+    datacenter_name: "{{ dc_name }}"
+    cluster_name: "{{ cluster }}"
+    validate_certs: false
+  register: vcenter_mgmt_cluster_moid
+
+- debug: var="vcenter_mgmt_cluster_moid"

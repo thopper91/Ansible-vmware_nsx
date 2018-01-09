@@ -1,0 +1,9 @@
+---
+cluster: 'Toms Development' # Cluster name
+dc_name: 'Dev-Tom' # Datacentre name
+description: 'Test' # Transport zone description
+name: 'Tom' # Name for transport zone
+replication: 'UNICAST_MODE'
+vmware_hostname: 'wahoo003.local.uk' # vmware hostname
+vmware_password: 'passwordYo' # vmware password
+vmware_username: 'hoppert' # vmware username

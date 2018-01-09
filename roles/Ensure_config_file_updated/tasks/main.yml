@@ -1,0 +1,5 @@
+---
+- name: Update config file with line
+  lineinfile:
+    path: /home/{{ user }}/Ansible-VmwareNSX/ansible.cfg
+    line: 'library=/home/{{ user }}/Ansible-VmwareNSX/nsxansible/library'

@@ -1,0 +1,5 @@
+---
+description: 'Testing the ansible code actually works'
+name: 'Tom-Test'
+replication: 'UNICAST_MODE'
+transportZone: 'TZDXC'

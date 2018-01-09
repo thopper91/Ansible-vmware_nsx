@@ -1,0 +1,6 @@
+---
+nsxmanager_spec:
+  raml_file: '/home/hoppert/Ansible-VmwareNSX/nsxraml/nsxvapi.raml'
+  host: '10.0.5.103'
+  user: 'admin'
+  password: 'HP1nvent'
