@@ -1,7 +1,7 @@
 {
-    "ip": "ukrdvmgvc001.dbpoc.uk", #"10.0.5.103",
+    "ip": "0.0.0.65"
     "credentials": {
         "userName":"admin",
-        "password":"HP1nvent"
+        "password":"password"
         },
 }
