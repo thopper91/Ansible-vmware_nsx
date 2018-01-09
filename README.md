@@ -22,8 +22,8 @@ Then once the playbooks are ready to be ran:
 ```
 $ ansible-playbook FILENAME.yml --extra-vars "ansible_sudo_pass=PASSWORD"
 ```
-FILENAME: The name of the ansible playbook you want to run
-PASSWORD: The sudo password to this machine
+- FILENAME: The name of the ansible playbook you want to run
+- PASSWORD: The sudo password to this machine
 
 The ansible line of code runs the playbook with an additional variable for a password. This password is the VM's/Machine's 
 password. We have to include these due to stating we will become sudo with this line of code
